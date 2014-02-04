@@ -8,7 +8,12 @@
 module.exports = function routes() {
     this.root('pages#main');
 
+    //routes are matched in the order specified
+
+    // route userController/list
     this.match('user/list', 'user#list');
+
+    // route to user/create/{name}
     this.match('user/:name', 'user#create');
 
 }

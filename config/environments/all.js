@@ -7,5 +7,6 @@ module.exports = function() {
         console.warn(util.format('version mismatch between local (%s) and global (%s) Locomotive module', require('locomotive').version, this.version));
     }
 
+    // required to map locomative with mongoose
     this.datastore(require('locomotive-mongoose'));
 }
