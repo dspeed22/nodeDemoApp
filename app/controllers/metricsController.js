@@ -13,7 +13,82 @@ var metricsController = new Controller();
  */
 metricsController.queryMetrics = function() {
 
+    var context = this;
 
+
+    try {
+        // { startDate: "", endDate: "" }
+        var query = context.req.body;
+
+        console.log(query);
+
+        var startDt = new Date(query.startDate);
+        var endDt = new Date(query.endDate);
+
+        VolumeMetric.aggregate([{
+                // filter documents by start and end date
+                $match: {
+                    date: {
+                        $gt: startDt,
+                        $lte: endDt
+                    }
+                }
+            }, {
+                $group: {
+                    // make the group key the day of the year, we don't care about time
+                    _id: {
+                        $add: [{
+                            $dayOfYear: "$date"
+                        }]
+                    },
+                    // sum the volume field
+                    volume: {
+                        $sum: "$volume"
+                    },
+                    // get the min date of the goup
+                    first: {
+                        $min: "$date"
+                    }
+                }
+            }, {
+                // renamed and exlude fields from the document stream from the group clause (like select as in sql)
+                $project: {
+                    date: "$first",
+                    volume: 1,
+                    _id: 0
+                }
+
+            }],
+            function(err, metrics) {
+
+                if (err) {
+                    context.res.json({
+                        status: "fail query",
+                        error: err.message
+                    });
+                    return;
+                }
+
+                var results = [];
+
+                metrics.forEach(function(item) {
+
+                    results.push({
+                        volume: item.volume,
+                        date: item.date
+                    })
+                });
+
+                // return results as json array
+                context.res.json(results);
+            });
+
+    } catch (error) {
+        context.res.json({
+            status: "fail",
+            error: error.message
+        });
+    }
 
 };
 
@@ -29,7 +104,7 @@ metricsController.list = function() {
         var results = [];
 
         // return all users, pass callback to handle results and error
-        var metricResults = VolumeMetric.find({},
+        VolumeMetric.find({},
             function(err, items) {
 
                 if (err) {
@@ -122,5 +197,5 @@ metricsController.createDemoData = function() {
     }
 };
 
-// expose users controller to nodejs globally (exports is really more like "expose ")
+// expose metrics controller to nodejs globally
 module.exports = metricsController;

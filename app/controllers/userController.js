@@ -60,7 +60,7 @@ userController.list = function() {
         var results = [];
 
         // return all users, pass callback to handle results and error
-        var usersResults = UserModel.find({},
+        UserModel.find({},
             function(err, items) {
 
                 if (err) {

@@ -18,7 +18,9 @@ module.exports = function routes() {
 
 
     // MetricsController Routes
-    this.match('metrics/queryMetrics', 'metrics#queryMetrics');
+    this.match('metrics/queryMetrics', 'metrics#queryMetrics', {
+        via: 'POST'
+    });
 
     this.match('metrics/list', 'metrics#list');
 
