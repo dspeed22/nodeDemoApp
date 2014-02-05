@@ -5,10 +5,10 @@ module.exports = function() {
     // intialize mongoose connections to mongo db
     switch (this.env) {
         case 'development':
-            mongoose.connect('mongodb://localhost');
+            mongoose.connect('mongodb://localhost/devDemo');
             break;
         case 'production':
-            mongoose.connect('mongodb://localhost');
+            mongoose.connect('mongodb://localhost/prodDemo');
             break;
     }
 

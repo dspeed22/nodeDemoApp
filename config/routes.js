@@ -16,4 +16,13 @@ module.exports = function routes() {
     // route to user/create/{name}
     this.match('user/:name', 'user#create');
 
+
+    // MetricsController Routes
+    this.match('metrics/queryMetrics', 'metrics#queryMetrics');
+
+    this.match('metrics/list', 'metrics#list');
+
+    this.match('metrics/create', 'metrics#create');
+
+    this.match('metrics/createDemoData', 'metrics#createDemoData');
 }
