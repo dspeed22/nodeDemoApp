@@ -45,9 +45,12 @@
 
     <div class="container">
 
-      {{bs-alert message="A self destroyable hello world message!" type="info" dismissAfter=2 fade=true}}
+      {{bs-alert message="Charts need to be in a route!" type="info" dismissAfter=2 fade=true}}
 
       {{outlet}}
+
+      <div id="graph1" style="height: 300px"></div>
+  	  <div id="graph2" style="height: 300px"></div>
 
     </div><!-- /.container -->
 
@@ -72,5 +75,7 @@
 
 	<!--Main app ember controller -->
 	<script src="/scripts/app.js"></script>
+
+	<script src="/scripts/charts/EmberHighCharts.js"></script>
   </body>
 </html>

@@ -16,3 +16,13 @@ bower install highcharts
 Run to install packages:
 npm install
 bower install
+
+
+http://ember-addons.github.io/bootstrap-for-ember
+https://github.com/tildeio/bloggr-client
+http://getbootstrap.com/getting-started/
+http://bower.io/
+http://locomotivejs.org/
+
+highcharts with ember
+http://jsfiddle.net/qmmvx/2/
