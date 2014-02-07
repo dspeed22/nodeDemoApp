@@ -7,7 +7,8 @@
     <title><%= title %></title>
 
     <!-- Bootstrap -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/screen.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,15 +20,28 @@
   <body>
     <h1>Hello, world!</h1>
 
+<script type="text/x-handlebars">
+    {{bs-alert message="A self destroyable hello world message!" type="info" dismissAfter=2 fade=true}}
 
+    {{outlet}}
+</script>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/jquery/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/handlebars/handlebars.js"></script>
-    <script src="bower_components/ember/ember.js"></script>
-    <script src="bower_components/highcharts/highcharts.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/handlebars/handlebars.js"></script>
+    <script src="/bower_components/ember/ember.js"></script>
+    <script src="/bower_components/highcharts/highcharts.js"></script>
+
+    <!--Put before the initialization of the application, respect order, bs-core.min.js must run before any other bs components -->
+	<!--Core of Bootstrap for Ember -->
+	<script src="/bower_components/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
+	<!--Alert component -->
+	<script src="/bower_components/ember-addons.bs_for_ember/dist/js/bs-alert.min.js"></script>
+
+	<!--Main app ember controller -->
+	<script src="/scripts/app.js"></script>
   </body>
 </html>
