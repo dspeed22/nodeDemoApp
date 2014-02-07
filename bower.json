@@ -1,0 +1,23 @@
+{
+    "name": "demo",
+    "version": "0.0.0",
+    "authors": [
+        "Douglas Branca <douglasbranca@douglasbranca.com>"
+    ],
+    "description": "demo app",
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "~3.1.0",
+        "ember": "~1.3.1",
+        "highcharts": "~3.0.7",
+        "highlightjs": "~7.3.0"
+    }
+}

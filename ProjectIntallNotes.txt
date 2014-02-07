@@ -1,0 +1,18 @@
+Project Settings:
+http://bower.io/
+
+Grunt install: (compiling js, handlebars)
+npm install -g grunt-cli
+
+Bower Install:
+npm install -g bower
+
+Front end package installs:
+bower install ember
+bower install bootstrap --save
+//bower install ember-addons.bs_for_ember --save
+bower install highcharts
+
+Run to install packages:
+npm install
+bower install
