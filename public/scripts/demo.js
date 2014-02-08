@@ -1,8 +1,9 @@
-//main app file for ember application
+/**
+ * Main app file for ember application
+ * Application configuration etc
+ */
 
-App = Ember.Application.createWithMixins(Bootstrap);;// from jsfiddle http://jsfiddle.net/qmmvx/2/
-
-App.ChartConfig = Ember.Object.extend({
+App = Ember.Application.createWithMixins(Bootstrap);;App.ChartConfig = Ember.Object.extend({
     chart: null,
 
     setChart: function() {
@@ -49,7 +50,9 @@ App.ChartConfig = Ember.Object.extend({
 
     graphType: null
 
-});
+});;// from jsfiddle http://jsfiddle.net/qmmvx/2/
+
+//chart config in components/chart/chartConfig.js
 
 App.graphController = Ember.ArrayController.create({
     content: Ember.A([]),
@@ -78,10 +81,12 @@ App.graphController = Ember.ArrayController.create({
         });
         this.renderCharts();
     }
-});
+});;/**
+ * Main application view extension
+ * fires load events when main appplication view is loaded
+ */
 
-// this needs to be moved into a load file that runs at end of page load
-// when main template is inserted file runs
+// load default charts when app starts
 App.ApplicationView = Ember.View.extend({
     didInsertElement: function() {
         App.graphController.createGraph('graph1', 'line');
