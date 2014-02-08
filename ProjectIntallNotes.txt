@@ -17,12 +17,16 @@ Run to install packages:
 npm install
 bower install
 
+Build:
+grunt
+
 
 http://ember-addons.github.io/bootstrap-for-ember
 https://github.com/tildeio/bloggr-client
 http://getbootstrap.com/getting-started/
 http://bower.io/
 http://locomotivejs.org/
+http://gruntjs.com/
 
 highcharts with ember
 http://jsfiddle.net/qmmvx/2/

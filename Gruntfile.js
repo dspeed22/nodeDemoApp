@@ -25,22 +25,23 @@ module.exports = function(grunt) {
                 }
             }
         },
-        handlebars: {
-            all: {
-                files: {
-                    "public/scripts/templates.js": ["EmberApp/templates/**/*.hbs"]
+        ember_templates: {
+            options: {
+                templateName: function(sourceFile) {
+                    return sourceFile.replace(/EmberApp\/templates\//, '');
                 }
-            }
+            },
+            'public/scripts/templates.js': ["EmberApp/templates/**/*.hbs"]
         }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.loadNpmTasks('grunt-contrib-handlebars');
+    grunt.loadNpmTasks('grunt-ember-templates');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'handlebars']);
+    grunt.registerTask('default', ['concat', 'uglify', 'ember_templates']);
 
 };
