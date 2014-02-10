@@ -30,3 +30,57 @@ http://gruntjs.com/
 
 highcharts with ember
 http://jsfiddle.net/qmmvx/2/
+
+
+
+MongoDB windows
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/
+
+debugger
+https://github.com/node-inspector/node-inspector
+
+start:
+D:\Node\bfs\Mongo\Mongo\bin\mongod.exe -dbpath D:\Node\bfs\MongoDB
+
+D:\Node\bfs\App
+
+Locomotive install: (requires node js and express installed)
+$ npm install express -g
+$ npm install mongoose -g
+$ npm install locomotive -g
+
+//create app (remember to cd to app folder)
+$ lcm create hello
+
+//swap to newly created directory and install the node packages
+$ cd hello
+$ npm install
+
+// start the server (can install as windows service via bat file)
+// runs in console starts node.js webserver in console scope
+$ lcm server
+
+//install dependencies for mongodb
+//mongo0se and locomative mongoose
+$ npm install mongoose (if not global)
+$ npm install locomotive-mongoose
+
+
+https://github.com/node-inspector/node-inspector
+debug in node
+//get name of node proxcess
+tasklist /FI "IMAGENAME eq node.exe"
+
+//start debugging for the process
+node -e "process._debugProcess(11764)"
+
+//start inspector
+node-inspector &
+
+//open url
+ http://127.0.0.1:8080/debug?port=5858
+
+
+Api:
+http://localhost:3000/metrics/createDemoData
+ http://localhost:3000/metrics/list
