@@ -3,4 +3,4 @@
  * Application configuration etc
  */
 
-App = Ember.Application.createWithMixins(Bootstrap);
+App = window.App = Ember.Application.createWithMixins(Bootstrap);
