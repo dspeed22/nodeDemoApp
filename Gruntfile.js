@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        ember_templates: {
+        emberTemplates: {
             options: {
                 templateName: function(sourceFile) {
                     return sourceFile.replace(/EmberApp\/templates\//, '');
@@ -42,6 +42,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'ember_templates']);
+    grunt.registerTask('default', ['concat', 'uglify', 'emberTemplates']);
 
 };
