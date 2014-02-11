@@ -26,3 +26,11 @@ App.IndexRoute = Ember.Route.extend({
         });
     }
 });
+
+// map router directly to template and View (controller created automatically)
+App.Router.map(function() {
+    this.route("activechart", {
+        path: "/activechart"
+    });
+    this.route("about");
+});
