@@ -14,7 +14,7 @@ Grunt install: (compiling js, handlebars)
 Bower Install:
 `npm install -g bower`
 
-Run the following in the project folder: < /br>
+Run the following in the project folder: <br />
 Run to install packages:
 
 ```
