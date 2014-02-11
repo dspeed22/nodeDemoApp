@@ -30,7 +30,8 @@ http://gruntjs.com/
 
 highcharts with ember
 http://jsfiddle.net/qmmvx/2/
-
+http://coding.smashingmagazine.com/2013/11/07/an-in-depth-introduction-to-ember-js/
+http://jsbin.com/odosoy/132/edit
 
 
 MongoDB windows
