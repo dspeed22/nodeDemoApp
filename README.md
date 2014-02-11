@@ -4,7 +4,7 @@ nodeDemoApp
 Demo app with nodejs, locomotive, mongodb, bootstrap, highcharts and ember
 
 
-Install:
+Install: <br />
 [NodeJS](http://nodejs.org/) <br />
 [MongoDB](http://www.mongodb.org/)
 
