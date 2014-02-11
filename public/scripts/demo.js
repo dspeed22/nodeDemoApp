@@ -149,6 +149,7 @@ App.graphController = Ember.ArrayController.create({
             point: {
                 events: {
                     click: function() {
+                        // fire request to graph controller to update all charts
                         App.graphController.switchTypes();
                     }
                 }
@@ -197,7 +198,7 @@ App.Router.map(function() {
     this.route("about");
 });;/**
  * activechart application view extension
- * fires load events when activechart template inserted
+ * fires load events when activechart.hbs template inserted
  */
 
 // load default charts when app starts
