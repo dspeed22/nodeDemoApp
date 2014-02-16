@@ -21,11 +21,6 @@ App.ChartHighchartComponent = Ember.Component.extend({
                 renderTo: this.get('elementId'),
                 defaultSeriesType: this.get('chartType')
             },
-            plotOptions: {
-                series: {
-                    cursor: 'pointer'
-                }
-            },
             title: {
                 text: this.get('chartTitle')
             },

@@ -17,6 +17,16 @@ App.ChartData.reopenClass({
             endDate: now
         };
 
+        var clickHandler = function() {
+            var datetext = Highcharts.dateFormat('%A, %b %e, %Y', this.x);
+            var volume = this.y;
+
+            //alert("clicked " + datetext + " value: " + volume);
+
+            var message = "Clicked sales " + volume + " on date " + datetext;
+            Bootstrap.GNM.push('Sales Point Clicked', message, 'info');
+        };
+
         // return ember promise object to make template rendering wait
         // call resolve with result when done to continue excecution
         return new Ember.RSVP.Promise(function(resolve) {
@@ -51,7 +61,17 @@ App.ChartData.reopenClass({
                         series: [{
                             name: 'Sales Volume',
                             data: series
-                        }]
+                        }],
+                        plotOptions: {
+                            series: {
+                                cursor: 'pointer',
+                                point: {
+                                    events: {
+                                        click: clickHandler
+                                    }
+                                }
+                            }
+                        },
                     };
 
                     var result = Ember.Object.create({
