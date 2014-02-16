@@ -19,6 +19,6 @@ module.exports = function() {
     // these are cached with mongoose and can be referenced like
     // var model = mongoose.model('Model')
     mongoose.model('User', schemas.UserSchema);
-    mongoose.model('Post', schemas.PostSchema);
+    mongoose.model('Sale', schemas.SalesSchema);
     mongoose.model('VolumeMetric', schemas.VolumeMetricSchema);
 }

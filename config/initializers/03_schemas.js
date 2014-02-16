@@ -16,11 +16,14 @@ module.exports = function() {
             isActive: Boolean
         }),
 
-        PostSchema: new Schema({
-            externalid: String,
-            author: String,
-            Body: String,
-            Url: String
+        SalesSchema: new Schema({
+            agentName: String,
+            amount: String,
+            units: String,
+            date: {
+                type: Date,
+                default: Date.now
+            },
         }),
 
         VolumeMetricSchema: new Schema({
