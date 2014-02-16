@@ -7,7 +7,10 @@ var rootUrl = "https://localhost:3000"
 
 App = window.App = Ember.Application.createWithMixins(Bootstrap, {
     LOG_TRANSITIONS: true
-});;// ember component wrapping highcharts object
+});
+
+App.ApplicationAdapter = DS.LSAdapter;
+App.Store = DS.Store.extend();;// ember component wrapping highcharts object
 
 
 
@@ -122,17 +125,34 @@ App.graphController = Ember.ArrayController.create({
         });
         this.renderCharts();
     }
-});;/*
- * Controller using Boot strap for ember to show growl notifications
- */
+});;// users array controller
+// Maintains a list of user models bound to the users template
+// Essentially the controller is managing the state of the models
 
-App.NotifyController = Ember.Controller.extend({
+App.UsersController = Em.ArrayController.extend({
+
+    // the way the controller should sort data
+    sortProperties: ['name'],
+    sortAscending: true, // false = descending
+
+    // Add a property the template can access to get the total count of users
+    usersCount: function() {
+        return this.get('model.length');
+    }.property('@each')
+});;//User creation controller
+// Binds to the userCreate template handles actions
+
+App.UsersCreateController = Em.ObjectController.extend({
     actions: {
-        pushInfo: function(message) {
-            Bootstrap.GNM.push('INFO', message, 'info');
-        },
-        pushSuccess: function(message) {
-            Bootstrap.GNM.push('SUCCESS', message, 'success');
+        // save action uses EmberData to submit to the rest api
+        save: function() {
+
+            // save and commit
+            var newUser = App.User.createRecord(this.get('model'));
+            newUser.save();
+
+            // redirects back to users grid
+            this.transitionToRoute('users');
         }
     }
 });;App.ChartConfig = Ember.Object.extend({
@@ -269,6 +289,13 @@ App.ChartData.reopenClass({
                 });
         });
     }
+});;// the model for a user
+// Extends the ember datastore model
+// Model submitted and deserialized the the ember rest adapter
+
+App.User = DS.Model.extend({
+    name: DS.attr("string"),
+    active: DS.attr("boolean")
 });;// Main ember app routes
 
 // index route, loads initial chart data
@@ -280,11 +307,53 @@ App.IndexRoute = Ember.Route.extend({
 
 // map router directly to template and View (controller created automatically)
 App.Router.map(function() {
+
+    // map the activechart route to the "ActiveChartView"
     this.route("activechart", {
         path: "/activechart"
     });
+
+    // route directly to about page, loads about template automatically
     this.route("about");
-});;/**
+
+    // add route to users list and create
+    // users list will be "/users"
+    // create will be "users/create"
+    this.resource('users', function() {
+        this.route('create');
+    });
+});; // single user route - dynamic segment
+ App.UserRoute = Em.Route.extend({
+     model: function(params) {
+         return this.store.find('user', params.user_id);
+     }
+ });;// user creation form route
+// Loads an empter model when users/create is called
+// returns the user.create template and binds the usersCreateController to the template
+
+
+App.UsersCreateRoute = Em.Route.extend({
+    model: function() {
+        // the model for this route is a new empty Ember.Object
+        return Em.Object.create({});
+    },
+
+    // in this case (the create route) the user/create template
+    // associated with the usersCreateController
+    renderTemplate: function() {
+        this.render('user.create', {
+            controller: 'usersCreate'
+        });
+    }
+});;// users route
+// Main users list, loads the list of users from the store
+// no controller method for this, the route acts as a traditional controller
+
+App.UsersRoute = Em.Route.extend({
+    model: function() {
+        return this.store.find('user');
+    }
+});/**
  * activechart application view extension
  * fires load events when activechart.hbs template inserted
  */

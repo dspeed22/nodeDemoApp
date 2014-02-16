@@ -10,17 +10,19 @@ var userController = new Controller();
 
 /**
  * create a user in mongo db with mongoose
- * @returns json { status: "success, fail" error: "message" }
+ * response is formated for ember data rest adapter
+ * @returns json { user: { name: '', active: '' }} { fail" error: "message" }
  */
 userController.create = function() {
 
     var context = this;
 
     try {
+        var userReq = context.req.body;
 
         // create a new user mongoose model
         var user = new UserModel({
-            name: this.param("name"),
+            name: userReq.user.name,
             isActive: 1
         });
 
@@ -36,7 +38,10 @@ userController.create = function() {
 
                 // return json result using "this.res"
                 context.res.json({
-                    status: "success"
+                    user: {
+                        name: user.name,
+                        active: user.isActive
+                    }
                 });
             }
         });
@@ -50,6 +55,7 @@ userController.create = function() {
 
 /**
  * Lists all the users in the mongoDB
+ * request is formated for ember data adapter. Expects Users: []
  * @returns json list of users
  */
 userController.list = function() {
@@ -81,7 +87,9 @@ userController.list = function() {
                 });
 
                 // return results as json array
-                context.res.json(results);
+                context.res.json({
+                    users: results
+                });
             });
 
     } catch (error) {

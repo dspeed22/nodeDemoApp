@@ -1,0 +1,27 @@
+<div class='usersView'>    
+
+    
+
+        <div class="usersCount">Total Users: {{usersCount}}</div>
+
+    <div class="listingContainer">
+
+        <ul class="users-listing">
+            {{#each user in controller}}
+            <li>
+                 <span class="namefield">  Name: {{user.name}} </span>
+                 <span>   Active: {{user.active}} </span>
+            </li>
+            {{else}}
+            <li>no users… :(</li>
+            {{/each}}
+        </ul>
+    </div>
+    {{#link-to "users.create" class="create-btn"}} Add user {{/link-to}}
+
+<div class="usersubviews">
+    {{outlet}}
+
+</div>
+
+</div>

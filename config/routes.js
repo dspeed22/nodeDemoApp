@@ -13,8 +13,12 @@ module.exports = function routes() {
     // route userController/list
     this.match('user/list', 'user#list');
 
+    this.match('users', 'user#list');
+
     // route to user/create/{name}
-    this.match('user/:name', 'user#create');
+    this.match('users', 'user#create', {
+        via: 'POST'
+    });
 
 
     // MetricsController Routes

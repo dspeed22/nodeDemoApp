@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+.usersView{
+	padding:20px;
+}
+
+.listingContainer{
+	margin-top: 20px;
+	margin-bottom:20px;
+}
+
+.create-btn{
+	border: 1px solid black;
+	padding:5px;
+}
+
+.usersubviews{
+	margin-top:20px;
+}
+
+.namefield{
+	margin-right:10px;
+}
