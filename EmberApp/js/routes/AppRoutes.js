@@ -20,10 +20,7 @@ var tempChartModel = {
 
 App.IndexRoute = Ember.Route.extend({
     model: function() {
-        return Ember.Object.create({
-            modelOne: tempChartModel,
-            modelTwo: tempChartModel
-        });
+        return App.ChartData.LoadChartData();
     }
 });
 

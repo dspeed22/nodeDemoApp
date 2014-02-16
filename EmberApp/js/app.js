@@ -3,4 +3,8 @@
  * Application configuration etc
  */
 
-App = window.App = Ember.Application.createWithMixins(Bootstrap);
+var rootUrl = "https://localhost:3000"
+
+App = window.App = Ember.Application.createWithMixins(Bootstrap, {
+    LOG_TRANSITIONS: true
+});

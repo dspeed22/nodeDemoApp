@@ -9,6 +9,8 @@ App.ChartHighchartComponent = Ember.Component.extend({
     attributeBindings: ['width', 'height'],
     width: '380px',
     height: 'auto',
+    chartTitle: '',
+    yAxisTitle: '',
     didInsertElement: function() {
 
         var container = $('#' + this.get('elementId'));
@@ -22,6 +24,14 @@ App.ChartHighchartComponent = Ember.Component.extend({
             plotOptions: {
                 series: {
                     cursor: 'pointer'
+                }
+            },
+            title: {
+                text: this.get('chartTitle')
+            },
+            yAxis: {
+                title: {
+                    text: this.get('yAxisTitle')
                 }
             }
         };
