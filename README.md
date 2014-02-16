@@ -39,15 +39,15 @@ https://github.com/node-inspector/node-inspector
 Windows: <br />
 1.) windows get name of node process
 
-'tasklist /FI "IMAGENAME eq node.exe"'
+`tasklist /FI "IMAGENAME eq node.exe"`
 
 <br />
 2.) start debugging for the process <br />
-'node -e "process._debugProcess(11764)"
+`node -e "process._debugProcess(11764)"`
 
 <br />
 3.) start inspector
-'node-inspector &''
+`node-inspector &`
 
 <br />
 4.) open url http://127.0.0.1:8080/debug?port=5858
