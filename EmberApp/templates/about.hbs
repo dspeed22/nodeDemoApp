@@ -1,1 +1,91 @@
-<div>Ember Demo app</div>
+<br />
+<div id="readme" class="clearfix announce instapaper_body md">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+    	<h1>DemoApp</h1>
+
+<p>Demo app with nodejs, locomotive, mongodb, bootstrap, highcharts and ember</p>
+Author: Douglas Branca <br />
+<a href="mailto:dougb@slalom.com">dougb@slalom.com</a>
+<br />
+<br />
+<p>Install: <br><a href="http://nodejs.org/">NodeJS</a> <br><a href="http://www.mongodb.org/">MongoDB</a></p>
+
+<p>Grunt install: (compiling js, handlebars) <br><code>npm install -g grunt-cli</code></p>
+
+<p>Bower Install: <br><code>npm install -g bower</code></p>
+
+<p>Run the following in the project folder: <br>
+Run to install packages: </p>
+
+<code>
+npm install <br />
+bower install
+</code>
+<br />
+<br />
+
+<p>Build js and handlebar templates: <br><code>grunt</code></p>
+
+<p>Start MongoDB: <br><code>mongod.exe -dbpath={dbpath}</code></p>
+
+<p>Start Locomotive Server: <br><code>lcm server</code></p>
+
+<p><strong>Debugging Node: </strong><br><br />
+Get node inspector to use Chrome to debug <br><a href="https://github.com/node-inspector/node-inspector">https://github.com/node-inspector/node-inspector</a>
+<br/>
+<br />
+Windows: <br><br />
+1.) windows get name of node process</p>
+
+<p><code>tasklist /FI "IMAGENAME eq node.exe"</code></p>
+
+<p><br>
+2.) start debugging for the process <br><code>node -e "process._debugProcess(11764)"</code></p>
+
+<p><br>
+3.) start inspector
+<code>node-inspector &amp;</code></p>
+
+<p><br>
+4.) open url <a href="http://127.0.0.1:8080/debug?port=5858">http://127.0.0.1:8080/debug?port=5858</a></p></article>
+  </div>
+
+<p>
+This application uses the following client side frameworks located in bower.json:<br /><br />
+ bootstrap: ~3.1.0 <br />
+ ember: ~1.3.1 <br />
+ handlebars: 1.X.X <br />
+ highcharts.com: ~3.0.7 <br />
+ highlightjs: ~7.3.0 <br />
+ ember-addons.bs_for_ember: 0.6.0 <br />
+ ember-data: 0.0.14 <br />
+
+<br />
+<br />
+Highcarts requires a license for commerical use, see <a href="http://www.highcharts.com/">Highcharts</a>
+<br /><br />
+The following NodeJs frameworks located in package.json: <br /><br />
+        locomotive: 0.4.x  <br />
+        bootable: 0.2.x  <br />
+        bootable-environment: 0.2.x  <br />
+        express: 3.x.x  <br />
+        connect-powered-by: 0.1.x  <br />
+        ejs: 0.8.x  <br />
+        locomotive-mongoose: 0.1.0  <br />
+        mongoose: 3.8.6  <br />
+        grunt: 0.4.2  <br />
+        grunt-contrib-handlebars: 0.6.1  <br />
+        grunt-contrib-concat: 0.3.0  <br />
+        grunt-contrib-uglify: 0.3.2  <br />
+        grunt-ember-templates: 0.4.18  <br />
+
+</p>
+
+ <br />
+ <br />
+ <br />
+ <div><strong>Help full links</strong></div><br />
+ <a href="http://emberjs.com/" >Emberjs</a><br />
+ <a href="http://locomotivejs.org/" >Locomative</a><br />
+ <a href="http://bower.io/">bower</a><br />
+ <a href="http://www.highcharts.com/">Highcharts</a><br />

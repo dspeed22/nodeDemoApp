@@ -26,14 +26,14 @@ module.exports = function routes() {
         via: 'POST'
     });
 
-    this.match('metrics/list', 'metrics#list');
+    this.match('metrics', 'metrics#list');
 
     this.match('metrics/create', 'metrics#create');
 
     this.match('metrics/createDemoData', 'metrics#createDemoData');
 
     // sales controller routes
-    this.match('sales/list', 'sales#list');
+    this.match('sales', 'sales#list');
 
     this.match('sales/create', 'user#create', {
         via: 'POST'
